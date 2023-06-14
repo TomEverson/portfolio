@@ -1,0 +1,29 @@
+---
+import { Icon } from "astro-icon";
+---
+
+<header class="w-full">
+  <div
+    class="h-16 m-auto flex flex-row justify-between w-1/2 items-center p-4 border-b"
+  >
+    <nav class="text-base flex flex-row gap-8">
+      <a href="/">Home</a>
+      <a href="/#projects">Projects</a>
+      <a href="/#blogs">Blogs</a>
+    </nav>
+    <div class="h-full flex flex-row gap-4">
+      <a href="https://github.com/TomEverson" class="w-8">
+        <Icon name="mdi:github-face" />
+      </a>
+      <a href="https://www.instagram.com/tomeverson20/" class="w-8">
+        <Icon name="mdi:instagram" />
+        <a
+          href="https://www.linkedin.com/in/tom-everson-44a806229/"
+          class="w-8"
+        >
+          <Icon name="mdi:linkedin" />
+        </a>
+      </a>
+    </div>
+  </div>
+</header>

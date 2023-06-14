@@ -1,0 +1,29 @@
+---
+import Header from "../../components/header.astro";
+import Head from "../../layouts/head.astro";
+import MainLayout from "../../layouts/main.astro";
+
+export async function getStaticPaths() {
+  const blogs = await Astro.glob("../../posts/*.md");
+  return blogs.map((blog) => {
+    return [{ params: { slug: blog.frontmatter.slug }, props: { blog } }];
+  });
+}
+
+const { Content, frontmatter } = Astro.props.blog;
+---
+
+<html lang="en">
+  <Head />
+  <MainLayout>
+    <Header />
+    <div
+      class="m-auto h-full w-1/2 flex flex-col items-center pb-8 mb-16 border-b"
+    >
+      <h1 class="text-3xl my-8 font-bold">{frontmatter.title}</h1>
+      <article class="prose">
+        <Content />
+      </article>
+    </div>
+  </MainLayout>
+</html>

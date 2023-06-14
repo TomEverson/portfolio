@@ -1,0 +1,77 @@
+---
+import Blogs from "./blogs.astro";
+const { projects } = Astro.props;
+
+export type Project = {
+  title: string;
+  description: string;
+  link: string;
+};
+---
+
+<div class="m-auto w-1/2 h-full">
+  <!-- Main -->
+  <div class="flex flex-row justify-between h-80">
+    <div class="w-3/4 flex flex-col justify-center pl-4 font-semibold">
+      <p class="text-2xl">
+        Hello There 👋!
+        <br />
+        My name is <span class="text-blue-400">Tom Everson</span>
+      </p>
+      <p class="mt-12">
+        Pre-College Student & <br />
+        Chief SWE at <span class="text-yellow-400">🐦Conceptians</span> & <span
+          class="text-green-400">🍃 Vunix</span
+        >
+      </p>
+    </div>
+    <div class="w-1/4 flex items-center justify-center">
+      <img
+        src="/porter.png"
+        alt="Spiderman"
+        class="rounded-full w-[200px] h-[200px] bg-cover"
+      />
+    </div>
+  </div>
+  <!-- About Me -->
+  <div class="flex flex-col my-12 pl-4">
+    <h1 class="text-4xl font-bold mb-4">⛩️About Me</h1>
+    <p class="mb-4">
+      Hello there! My name is <span class="text-blue-400">Tom Everson</span> and
+      I'm 17 years old. I enjoy designing stuffs, coding and building things, and
+      currently working at <span class="text-yellow-400">🐦Conceptians</span> and
+      <span class="text-green-400">🍃 Vunix</span> as a Chief Web Developer. I am
+      now trying to get an <span class="text-orange-400">👨‍💻internship</span> before
+      I went to college.
+    </p>
+    <p class="mb-4">
+      I think my hobbies consist of reading books📚 listening to music📻, coding
+      shts⌨️ and swimming🏊‍♂️. I don't have books recommendation for you, but I am
+      currently reading most of Hikaru Murakami's. My main music genres are
+      hip-hop, indie, and alt-rock. I recently got into <span
+        class="text-lime-400">Mid-Air Thief's</span
+      >
+      <span class="text-cyan-400">Crumbling🌊</span> and got super addicted to it,
+      but most of the time, I listen to Gorillaz🐒, or Radiohead📻.
+    </p>
+  </div>
+  <!-- Projects -->
+  <div class="flex flex-col my-8 pl-4" id="projects">
+    <h1 class="text-4xl font-bold mb-4">⚔️Projects</h1>
+    <div class="flex flex-row justify-between mt-4 gap-8">
+      {
+        projects.map((project: Project) => (
+          <a
+            href={project.link}
+            class="w-full flex flex-col rounded-3xl p-4 text-left"
+          >
+            <p class="text-xl underline-offset-2 underline">{project.title}</p>
+            <p class="mt-4 text-sm">{project.description}</p>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+  <!-- Blogs -->
+  <Blogs />
+</div>
