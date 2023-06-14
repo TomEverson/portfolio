@@ -9,11 +9,15 @@ export type Project = {
 };
 ---
 
-<div class="m-auto w-1/2 h-full">
+<div class="w-10/12 m-auto md:w-1/2 h-full">
   <!-- Main -->
-  <div class="flex flex-row justify-between h-80">
-    <div class="w-3/4 flex flex-col justify-center pl-4 font-semibold">
-      <p class="text-2xl">
+  <div
+    class="flex flex-col-reverse mt-16 items-center xl:flex-row xl:justify-between h-96 xl:mt-0"
+  >
+    <div
+      class="w-3/4 flex flex-col justify-center mt-4 xl:mt-0 pl-4 font-semibold text-center xl:text-left"
+    >
+      <p class="text-lg xl:text-2xl">
         Hello There 👋!
         <br />
         My name is <span class="text-blue-400">Tom Everson</span>
@@ -25,11 +29,11 @@ export type Project = {
         >
       </p>
     </div>
-    <div class="w-1/4 flex items-center justify-center">
+    <div class="xl:w-1/4 flex items-center justify-center h-auto">
       <img
         src="/porter.png"
-        alt="Spiderman"
-        class="rounded-full w-[200px] h-[200px] bg-cover"
+        alt="profile"
+        class="rounded-full bg-cover w-48 xl:w-64"
       />
     </div>
   </div>
@@ -52,13 +56,15 @@ export type Project = {
         class="text-lime-400">Mid-Air Thief's</span
       >
       <span class="text-cyan-400">Crumbling🌊</span> and got super addicted to it,
-      but most of the time, I listen to Gorillaz🐒, or Radiohead📻.
+      but most of the time, I listen to <span class="text-yellow-400"
+        >Gorillaz🐒</span
+      >, or <span class="text-red-400">Radiohead📻.</span>
     </p>
   </div>
   <!-- Projects -->
   <div class="flex flex-col my-8 pl-4" id="projects">
     <h1 class="text-4xl font-bold mb-4">⚔️Projects</h1>
-    <div class="flex flex-row justify-between mt-4 gap-8">
+    <div class="flex flex-col xl:flex-row justify-between mt-4 gap-8">
       {
         projects.map((project: Project) => (
           <a

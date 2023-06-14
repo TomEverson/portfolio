@@ -4,26 +4,56 @@ import { Icon } from "astro-icon";
 
 <header class="w-full">
   <div
-    class="h-16 m-auto flex flex-row justify-between w-1/2 items-center p-4 border-b"
+    class="h-16 w-screen p-4 m-0 lg:w-1/2 md:m-auto flex flex-row justify-between items-center border-b"
   >
-    <nav class="text-base flex flex-row gap-8">
+    <nav
+      class="lg:relative flex-col text-base lg:flex lg:flex-row gap-8 hidden"
+    >
       <a href="/">Home</a>
       <a href="/#projects">Projects</a>
       <a href="/#blogs">Blogs</a>
     </nav>
-    <div class="h-full flex flex-row gap-4">
-      <a href="https://github.com/TomEverson" class="w-8">
-        <Icon name="mdi:github-face" />
-      </a>
-      <a href="https://www.instagram.com/tomeverson20/" class="w-8">
-        <Icon name="mdi:instagram" />
-        <a
-          href="https://www.linkedin.com/in/tom-everson-44a806229/"
-          class="w-8"
-        >
-          <Icon name="mdi:linkedin" />
+    <nav class="flex flex-row justify-between w-full lg:w-auto">
+      <div class="flex flex-row gap-4">
+        <a href="https://github.com/TomEverson" class="w-8">
+          <Icon name="mdi:github-face" />
         </a>
-      </a>
-    </div>
+        <a href="https://www.instagram.com/tomeverson20/" class="w-8">
+          <Icon name="mdi:instagram" />
+          <a
+            href="https://www.linkedin.com/in/tom-everson-44a806229/"
+            class="w-8"
+          >
+            <Icon name="mdi:linkedin" />
+          </a>
+        </a>
+      </div>
+      <div class="w-8 lg:hidden relative">
+        <div id="menu-button">
+          <Icon name="mdi:menu" />
+        </div>
+        <nav
+          class="absolute top-16 right-0 flex-col gap-4 items-end hidden"
+          id="menu"
+        >
+          <a href="/">Home</a>
+          <a href="/#projects">Projects</a>
+          <a href="/#blogs">Blogs</a>
+        </nav>
+      </div>
+    </nav>
   </div>
 </header>
+
+<script is:inline>
+  const menu_button = document.getElementById("menu-button");
+  const menu = document.getElementById("menu");
+
+  menu_button?.addEventListener("click", function () {
+    if (menu.style.display == "flex") {
+      menu.style.display = "none";
+    } else {
+      menu.style.display = "flex";
+    }
+  });
+</script>
